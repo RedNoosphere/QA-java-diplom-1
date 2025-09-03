@@ -27,68 +27,41 @@ public class BurgerReceiptTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         burger = new Burger();
+        configureMocks();
     }
 
     @Test
-    public void testGetReceiptContainsBunName() {
-        when(mockBun.getName()).thenReturn("white bun");
-        burger.setBuns(mockBun);
-
-        String receipt = burger.getReceipt();
-        assertTrue(receipt.contains("(==== white bun ====)"));
-    }
-
-    @Test
-    public void testGetReceiptContainsSauceIngredient() {
-        configureMocksForReceipt();
-        burger.setBuns(mockBun);
-        burger.addIngredient(mockIngredientSauce);
-
-        String receipt = burger.getReceipt();
-        assertTrue(receipt.contains("= sauce hot sauce ="));
-    }
-
-    @Test
-    public void testGetReceiptContainsFillingIngredient() {
-        configureMocksForReceipt();
-        burger.setBuns(mockBun);
-        burger.addIngredient(mockIngredientFilling);
-
-        String receipt = burger.getReceipt();
-        assertTrue(receipt.contains("= filling cutlet ="));
-    }
-
-    @Test
-    public void testGetReceiptContainsTotalPrice() {
-        configureMocksForReceipt();
+    public void testGetReceiptReturnsFullCorrectReceipt() {
+        // Arrange (Подготовка данных)
         burger.setBuns(mockBun);
         burger.addIngredient(mockIngredientSauce);
         burger.addIngredient(mockIngredientFilling);
 
-        String receipt = burger.getReceipt();
-        assertTrue(Pattern.compile("Price:.*280").matcher(receipt).find());
-    }
+        // Act (Вызов целевого метода)
+        String actualReceipt = burger.getReceipt();
 
-    @Test
-    public void testGetReceiptWithNoIngredientsContainsPrice() {
-        when(mockBun.getName()).thenReturn("black bun");
-        when(mockBun.getPrice()).thenReturn(80f);
-        burger.setBuns(mockBun);
+        // Assert (Проверка всего рецепта сразу с помощью регулярного выражения)
+        // Проверяем основную структуру рецепта
+        assertTrue("Receipt should contain bun lines",
+                actualReceipt.contains("(==== white bun ====)"));
+        assertTrue("Receipt should contain sauce ingredient",
+                actualReceipt.contains("= sauce hot sauce ="));
+        assertTrue("Receipt should contain filling ingredient",
+                actualReceipt.contains("= filling cutlet ="));
 
-        String receipt = burger.getReceipt();
-        assertTrue(Pattern.compile("Price:.*160").matcher(receipt).find());
+        // Проверяем цену с помощью регулярного выражения, которое допускает и точку, и запятую
+        assertTrue("Receipt should contain correct price format",
+                Pattern.compile("Price: 280[.,]000000").matcher(actualReceipt).find());
     }
 
     @Test
     public void testGetReceiptCallsBunNameTwice() {
-        when(mockBun.getName()).thenReturn("test bun");
         burger.setBuns(mockBun);
-
         burger.getReceipt();
         verify(mockBun, times(2)).getName();
     }
 
-    private void configureMocksForReceipt() {
+    private void configureMocks() {
         when(mockBun.getName()).thenReturn("white bun");
         when(mockBun.getPrice()).thenReturn(100f);
 

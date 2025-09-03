@@ -50,6 +50,7 @@ public class BurgerParameterizedTest {
 
     @Test
     public void testGetPriceWithVariousParameters() {
+        // Arrange (Подготовка данных)
         when(mockBun.getPrice()).thenReturn(bunPrice);
         burger.setBuns(mockBun);
 
@@ -59,12 +60,12 @@ public class BurgerParameterizedTest {
             burger.addIngredient(mockIngredient);
         }
 
+        // Act (Вызов целевого метода)
         float actualPrice = burger.getPrice();
-        assertEquals(expectedTotalPrice, actualPrice, 0.001f);
 
-        verify(mockBun, times(1)).getPrice();
-        for (Ingredient ingredient : burger.ingredients) {
-            verify(ingredient, times(1)).getPrice();
-        }
+        // Assert (Проверка РЕЗУЛЬТАТА вычислений)
+        assertEquals("Total price is calculated incorrectly for bunPrice=" + bunPrice + " and ingredients=" + ingredientPrices, expectedTotalPrice, actualPrice, 0.001f);
+
+        // Убираем все verify из этого теста
     }
 }

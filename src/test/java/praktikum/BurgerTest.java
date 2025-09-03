@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class BurgerTest {
@@ -33,28 +35,30 @@ public class BurgerTest {
     @Test
     public void testSetBuns() {
         burger.setBuns(mockBun);
-        assertEquals(mockBun, burger.bun);
+        assertEquals("Bun should be set correctly", mockBun, burger.bun);
     }
 
     @Test
     public void testAddIngredientIncreasesSize() {
+        int initialSize = burger.ingredients.size();
         burger.addIngredient(mockIngredientSauce);
-        assertEquals(1, burger.ingredients.size());
+        assertEquals("Ingredients list size should increase by 1 after adding", initialSize + 1, burger.ingredients.size());
     }
 
     @Test
     public void testAddIngredientContainsAddedIngredient() {
         burger.addIngredient(mockIngredientSauce);
-        assertTrue(burger.ingredients.contains(mockIngredientSauce));
+        assertTrue("Ingredients list should contain the added ingredient", burger.ingredients.contains(mockIngredientSauce));
     }
 
     @Test
     public void testRemoveIngredientDecreasesSize() {
         burger.ingredients.add(mockIngredientSauce);
         burger.ingredients.add(mockIngredientFilling);
+        int initialSize = burger.ingredients.size();
 
         burger.removeIngredient(0);
-        assertEquals(1, burger.ingredients.size());
+        assertEquals("Ingredients list size should decrease by 1 after removal", initialSize - 1, burger.ingredients.size());
     }
 
     @Test
@@ -63,7 +67,7 @@ public class BurgerTest {
         burger.ingredients.add(mockIngredientFilling);
 
         burger.removeIngredient(0);
-        assertFalse(burger.ingredients.contains(mockIngredientSauce));
+        assertFalse("The removed ingredient should not be in the list", burger.ingredients.contains(mockIngredientSauce));
     }
 
     @Test
@@ -72,20 +76,37 @@ public class BurgerTest {
         burger.ingredients.add(mockIngredientFilling);
 
         burger.removeIngredient(0);
-        assertTrue(burger.ingredients.contains(mockIngredientFilling));
+        assertTrue("Other ingredients should remain in the list", burger.ingredients.contains(mockIngredientFilling));
     }
 
     @Test
-    public void testMoveIngredientChangesOrder() {
+    public void testMoveIngredientChangesOrderFirstToLast() {
         burger.ingredients.add(mockIngredientSauce);
         burger.ingredients.add(mockIngredientFilling);
         burger.ingredients.add(mockIngredientThird);
 
         burger.moveIngredient(0, 2);
+        assertEquals("Ingredient at index 2 should be the moved one", mockIngredientSauce, burger.ingredients.get(2));
+    }
 
-        assertEquals(mockIngredientFilling, burger.ingredients.get(0));
-        assertEquals(mockIngredientThird, burger.ingredients.get(1));
-        assertEquals(mockIngredientSauce, burger.ingredients.get(2));
+    @Test
+    public void testMoveIngredientChangesOrderNewFirstElement() {
+        burger.ingredients.add(mockIngredientSauce);
+        burger.ingredients.add(mockIngredientFilling);
+        burger.ingredients.add(mockIngredientThird);
+
+        burger.moveIngredient(0, 2);
+        assertEquals("Ingredient at index 0 should be correct after move", mockIngredientFilling, burger.ingredients.get(0));
+    }
+
+    @Test
+    public void testMoveIngredientChangesOrderNewSecondElement() {
+        burger.ingredients.add(mockIngredientSauce);
+        burger.ingredients.add(mockIngredientFilling);
+        burger.ingredients.add(mockIngredientThird);
+
+        burger.moveIngredient(0, 2);
+        assertEquals("Ingredient at index 1 should be correct after move", mockIngredientThird, burger.ingredients.get(1));
     }
 
     @Test
@@ -93,8 +114,9 @@ public class BurgerTest {
         burger.ingredients.add(mockIngredientSauce);
         burger.ingredients.add(mockIngredientFilling);
 
+        int initialSize = burger.ingredients.size();
         burger.moveIngredient(0, 1);
-        assertEquals(2, burger.ingredients.size());
+        assertEquals("Moving ingredient should not change the list size", initialSize, burger.ingredients.size());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -108,12 +130,20 @@ public class BurgerTest {
     }
 
     @Test
+    public void testGetPriceCallsBunGetPrice() {
+        when(mockBun.getPrice()).thenReturn(50f);
+        burger.setBuns(mockBun);
+
+        burger.getPrice();
+        verify(mockBun, times(1)).getPrice();
+    }
+
+    @Test
     public void testGetPriceWithNoIngredientsReturnsBunPriceOnly() {
         when(mockBun.getPrice()).thenReturn(50f);
         burger.setBuns(mockBun);
 
         float price = burger.getPrice();
-        assertEquals(100f, price, 0.001f);
-        verify(mockBun, times(1)).getPrice();
+        assertEquals("Price should be twice the bun price for a burger with no ingredients", 100f, price, 0.001f);
     }
 }
