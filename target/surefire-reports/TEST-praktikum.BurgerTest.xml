@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="praktikum.BurgerTest" time="0.767" tests="48" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="praktikum.BurgerTest" time="0.007" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.27_6\bin"/>
-    <property name="sun.java.command" value="C:\Users\volko\AppData\Local\Temp\surefire17366390144730739995\surefirebooter-20250831141430698_3.jar C:\Users\volko\AppData\Local\Temp\surefire17366390144730739995 2025-08-31T14-14-30_528-jvmRun1 surefire-20250831141430698_1tmp surefire_0-20250831141430698_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\volko\AppData\Local\Temp\surefire16269866875079813917\surefirebooter-20250903191907676_3.jar C:\Users\volko\AppData\Local\Temp\surefire16269866875079813917 2025-09-03T19-19-07_496-jvmRun1 surefire-20250903191907676_1tmp surefire_0-20250903191907676_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\volko\Diplom\QA-java-diplom-1\target\test-classes;C:\Users\volko\Diplom\QA-java-diplom-1\target\classes;C:\Users\volko\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\volko\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\volko\.m2\repository\org\mockito\mockito-core\4.11.0\mockito-core-4.11.0.jar;C:\Users\volko\.m2\repository\net\bytebuddy\byte-buddy\1.12.19\byte-buddy-1.12.19.jar;C:\Users\volko\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.19\byte-buddy-agent-1.12.19.jar;C:\Users\volko\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\volko\AppData\Local\Temp\surefire17366390144730739995\surefirebooter-20250831141430698_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\volko\AppData\Local\Temp\surefire16269866875079813917\surefirebooter-20250903191907676_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.27+6-LTS"/>
@@ -61,52 +61,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testMoveIngredientWithInvalidIndex[0]" classname="praktikum.BurgerTest" time="0.595"/>
-  <testcase name="testGetPrice[0]" classname="praktikum.BurgerTest" time="0.035"/>
-  <testcase name="testRemoveIngredient[0]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetReceiptContainsAllElements[0]" classname="praktikum.BurgerTest" time="0.006"/>
-  <testcase name="testMoveIngredient[0]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetPriceWithNoIngredients[0]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testRemoveIngredientWithInvalidIndex[0]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptWithNoIngredients[0]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testGetReceipt[0]" classname="praktikum.BurgerTest" time="0.004"/>
-  <testcase name="testSetBuns[0]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testAddIngredient[0]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptFormat[0]" classname="praktikum.BurgerTest" time="0.003"/>
-  <testcase name="testMoveIngredientWithInvalidIndex[1]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetPrice[1]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testRemoveIngredient[1]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetReceiptContainsAllElements[1]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testMoveIngredient[1]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetPriceWithNoIngredients[1]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testRemoveIngredientWithInvalidIndex[1]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptWithNoIngredients[1]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetReceipt[1]" classname="praktikum.BurgerTest" time="0.004"/>
-  <testcase name="testSetBuns[1]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testAddIngredient[1]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptFormat[1]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testMoveIngredientWithInvalidIndex[2]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetPrice[2]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testRemoveIngredient[2]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptContainsAllElements[2]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testMoveIngredient[2]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetPriceWithNoIngredients[2]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testRemoveIngredientWithInvalidIndex[2]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptWithNoIngredients[2]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testGetReceipt[2]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testSetBuns[2]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testAddIngredient[2]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptFormat[2]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testMoveIngredientWithInvalidIndex[3]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetPrice[3]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testRemoveIngredient[3]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptContainsAllElements[3]" classname="praktikum.BurgerTest" time="0.002"/>
-  <testcase name="testMoveIngredient[3]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetPriceWithNoIngredients[3]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testRemoveIngredientWithInvalidIndex[3]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetReceiptWithNoIngredients[3]" classname="praktikum.BurgerTest" time="0.001"/>
-  <testcase name="testGetReceipt[3]" classname="praktikum.BurgerTest" time="0.003"/>
-  <testcase name="testSetBuns[3]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testAddIngredient[3]" classname="praktikum.BurgerTest" time="0.0"/>
-  <testcase name="testGetReceiptFormat[3]" classname="praktikum.BurgerTest" time="0.002"/>
+  <testcase name="testRemoveIngredientKeepsOtherIngredients" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testGetPriceWithNoIngredientsReturnsBunPriceOnly" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testMoveIngredientMaintainsSize" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testRemoveIngredientRemovesCorrectIngredient" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testRemoveIngredientWithInvalidIndexThrowsException" classname="praktikum.BurgerTest" time="0.001"/>
+  <testcase name="testMoveIngredientChangesOrder" classname="praktikum.BurgerTest" time="0.001"/>
+  <testcase name="testAddIngredientContainsAddedIngredient" classname="praktikum.BurgerTest" time="0.001"/>
+  <testcase name="testMoveIngredientWithInvalidIndexThrowsException" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testSetBuns" classname="praktikum.BurgerTest" time="0.001"/>
+  <testcase name="testAddIngredientIncreasesSize" classname="praktikum.BurgerTest" time="0.0"/>
+  <testcase name="testRemoveIngredientDecreasesSize" classname="praktikum.BurgerTest" time="0.001"/>
 </testsuite>
